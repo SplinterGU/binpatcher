@@ -75,9 +75,13 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    if (!input_file || !output_file || !search_block_file || !replace_block_file) {
+    if (!input_file || !search_block_file || !replace_block_file) {
         print_help();
         return 1;
+    }
+
+    if (!output_file) {
+        output_file = input_file;
     }
 
     replace_block(input_file, output_file, search_block_file, replace_block_file);
@@ -87,13 +91,13 @@ int main(int argc, char *argv[]) {
 
 // Print help message
 void print_help() {
-    printf("Binary Patcher v1.0 - (c) 2024 Juan José Ponteprino (SplinterGU)\n\n");
-    printf("Usage: binpatcher -i <input_file> -o <output_file> -s <search_block_file> -r <replace_block_file>\n");
+    printf("Binary Patcher v1.1 - (c) 2024 Juan José Ponteprino (SplinterGU)\n\n");
+    printf("Usage: binpatcher -i <input_file> [-o <output_file>] -s <search_block_file> -r <replace_block_file>\n");
     printf("A command-line tool for searching and replacing binary blocks in files.\n\n");
     printf("Options:\n");
     printf("  -h                        Display this help message and exit.\n");
     printf("  -i <input_file>           The path to the input file.\n");
-    printf("  -o <output_file>          The path to the output file.\n");
+    printf("  -o <output_file>          The path to the output file (optional, defaults to input file).\n");
     printf("  -s <search_block_file>    The path to the binary file containing the block to search for.\n");
     printf("  -r <replace_block_file>   The path to the binary file containing the block to replace with.\n\n");
     printf("This software is provided under the terms of the MIT License.\n");

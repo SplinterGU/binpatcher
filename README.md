@@ -5,16 +5,16 @@
 ## Usage
 
 ```sh
-binpatcher -i <input_file> -o <output_file> -s <search_block_file> -r <replace_block_file>
+binpatcher -i <input_file> -s <search_block_file> -r <replace_block_file> [-o <output_file>]
 ```
 
 ### Options
 
 - `-h`: Display this help message and exit.
 - `-i <input_file>`: Path to the input file.
-- `-o <output_file>`: Path to the output file.
 - `-s <search_block_file>`: Path to the binary file containing the block to search for.
 - `-r <replace_block_file>`: Path to the binary file containing the block to replace with.
+- `-o <output_file>`: Path to the output file. If not specified, the input file will be overwritten.
 
 ## Example
 
@@ -22,6 +22,12 @@ To search for a specific binary block in `input.bin` and replace it with another
 
 ```sh
 binpatcher -i input.bin -o output.bin -s search.bin -r replace.bin
+```
+
+To search for a specific binary block in `input.bin` and replace it with another block from `replace.bin`, overwriting the input file, use:
+
+```sh
+binpatcher -i input.bin -s search.bin -r replace.bin
 ```
 
 ## Installation
